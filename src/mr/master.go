@@ -1,19 +1,38 @@
 package mr
 
-import "log"
+import (
+	"log"
+	"os"
+	"sync"
+)
 import "net"
-import "os"
 import "net/rpc"
 import "net/http"
 
 
 type Master struct {
-	// Your definitions here.
-
+	// TODO:Your definitions here.
+	mutex sync.Mutex
+	state int
+	mapTasks []Task
+	reduceTasks []Task
+	numOfMap int
+	numOfReduce int
 }
 
-// Your code here -- RPC handlers for the worker to call.
+// TODO:Your code here -- RPC handlers for the worker to call.
 
+func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskReply) error {
+
+
+	return nil
+}
+
+func (m *Master) ReportTaskHandler(args *RequestTaskArgs, reply *RequestTaskReply) error {
+
+
+	return nil
+}
 //
 // an example RPC handler.
 //
@@ -31,7 +50,7 @@ func (m *Master) Example(args *ExampleArgs, reply *ExampleReply) error {
 func (m *Master) server() {
 	rpc.Register(m)
 	rpc.HandleHTTP()
-	//l, e := net.Listen("tcp", ":1234")
+	//l, e := net.Listen("tcp", "localhost:8080")
 	sockname := masterSock()
 	os.Remove(sockname)
 	l, e := net.Listen("unix", sockname)
@@ -46,9 +65,9 @@ func (m *Master) server() {
 // if the entire job has finished.
 //
 func (m *Master) Done() bool {
-	ret := false
+	ret := true
 
-	// Your code here.
+	// TODO:Your code here.
 
 
 	return ret
@@ -62,8 +81,10 @@ func (m *Master) Done() bool {
 func MakeMaster(files []string, nReduce int) *Master {
 	m := Master{}
 
-	// Your code here.
+	// TODO:Your code here.
+	for i := range(nReduce) {
 
+	}
 
 	m.server()
 	return &m

@@ -6,14 +6,16 @@ package mr
 // remember to capitalize all names.
 //
 
-import "os"
+import (
+	"os"
+	"time"
+)
 import "strconv"
 
 //
 // example to show how to declare the arguments
 // and reply for an RPC.
 //
-
 type ExampleArgs struct {
 	X int
 }
@@ -22,7 +24,54 @@ type ExampleReply struct {
 	Y int
 }
 
+//
 // Add your RPC definitions here.
+
+//Task.TaskType
+const(
+	MapTask = iota
+	ReduceTask
+)
+//Task.State
+const (
+	UnScheduled = iota
+	InProgress
+	Done
+)
+
+type Task struct {
+	id int
+	taskType int
+	state int
+	filename string
+	timeStamp time.Time
+	numsOfMap int
+	numsOfReduce int
+}
+
+//RequestTaskReply.WorkerNextState
+const (
+	Idle = iota
+	WorkAssigned
+	NoMoreWork
+)
+
+// args and reply for CallRequestTask
+type RequestTaskArgs struct {
+}
+
+type RequestTaskReply struct {
+	Task *Task
+	WorkerNextState int
+}
+
+// args and reply for  CallReportTask RPC
+type ReportTaskArgs struct {
+	Task *Task
+}
+
+type ReportTaskReply struct {
+}
 
 
 // Cook up a unique-ish UNIX-domain socket name
