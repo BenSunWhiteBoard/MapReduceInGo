@@ -205,19 +205,17 @@ func MakeMaster(files []string, nReduce int) *Master {
 			TaskType:     MapTask,
 			State:        UnScheduled,
 			Filename:     file,
-			TimeStamp:    nil,
 			NumsOfMap:    m.numOfMap,
 			NumsOfReduce: m.numOfReduce,
 		})
 	}
 
-	for i := 0; i < nReduce; i += 1 {
+	for i := 0; i < nReduce; i ++ {
 		m.mapTasks = append(m.mapTasks, Task{
 			Id:           i,
 			TaskType:     ReduceTask,
 			State:        UnScheduled,
 			Filename:     "",
-			TimeStamp:    nil,
 			NumsOfMap:    m.numOfMap,
 			NumsOfReduce: m.numOfReduce,
 		})

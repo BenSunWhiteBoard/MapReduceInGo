@@ -21,8 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cee4c8be-e7ff-48b2-a4d1-5e3ec579b01b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mrmaster" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrmaster" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mrsequential" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrsequential" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mrworker" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrworker" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mr/master.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/master.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mr/rpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/rpc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mr/worker.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/worker.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,10 +101,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1603570866196" />
-    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603573491504">
+    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604002438606">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1603573491504" />
+    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1604002438606" />
     <state x="141" y="39" key="SettingsEditor" timestamp="1603570897277">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
