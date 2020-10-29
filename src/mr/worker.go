@@ -27,7 +27,7 @@ func ihash(key string) int {
 	return int(h.Sum32() & 0x7fffffff)
 }
 
-func DoMapTask(mapf func(string, string) []KeyValue, task *Task) {
+func DoMapTask(mapf func(string, string) []KeyValue, task Task) {
 
 }
 
@@ -35,7 +35,7 @@ func IntermediateFile(mapTaskId int, reduceTask int) string {
 	return fmt.Sprintf("mr-%d-%d", mapTaskId, reduceTask)
 }
 
-func DoReduceTask(reducef func(string, []string) string, task *Task) {
+func DoReduceTask(reducef func(string, []string) string, task Task) {
 
 }
 
@@ -46,7 +46,7 @@ func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 
 	// TODO:Your worker implementation here.
-	// asking for tasks
+	// keep asking for tasks
 	for {
 		reply, err := CallRequestTask()
 		if err != nil {
@@ -56,13 +56,15 @@ func Worker(mapf func(string, string) []KeyValue,
 		case Idle:
 			time.Sleep(time.Second)
 		case WorkAssigned:
-			switch reply.Task.taskType {
-			case MapTask:
+			if reply.Task.TaskType == MapTask {
 				DoMapTask(mapf, reply.Task)
-			case ReduceTask:
+			} else if reply.Task.TaskType == ReduceTask {
 				DoReduceTask(reducef, reply.Task)
 			}
-			CallReportTask(reply.Task)
+			err := CallReportTask(reply.Task)
+			if err != nil{
+				continue
+			}
 			time.Sleep(time.Second)
 		case NoMoreWork:
 			return
@@ -82,20 +84,21 @@ func CallRequestTask() (RequestTaskReply, error) {
 	args := RequestTaskArgs{}
 	reply := RequestTaskReply{}
 
-	isSuccess := call("Master.RequestTask", &args, &reply)
+	isSuccess := call("Master.RequestTaskHandler", &args, &reply)
 	if isSuccess {
 		return reply, nil
+	} else {
+		//something go wrong
+		return RequestTaskReply{}, errors.New("failed to connect to master server")
 	}
-	//something go wrong
-	return RequestTaskReply{}, errors.New("failed to connect to master server")
 }
 
-func CallReportTask(task *Task) error {
+func CallReportTask(task Task) error {
 
 	args := ReportTaskArgs{task}
 	reply := RequestTaskReply{}
 
-	isSuccess := call("Master.ReportTask", &args, &reply)
+	isSuccess := call("Master.ReportTaskHandler", &args, &reply)
 	if isSuccess {
 		return nil
 	} else {

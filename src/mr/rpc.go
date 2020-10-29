@@ -38,15 +38,15 @@ const (
 	InProgress
 	Done
 )
-
+//master maintain the full consistent info of Task, worker only need part of it to work
 type Task struct {
-	id int
-	taskType int
-	state int
-	filename string
-	timeStamp time.Time
-	numsOfMap int
-	numsOfReduce int
+	Id int
+	TaskType int
+	State int
+	Filename string
+	TimeStamp time.Time
+	NumsOfMap int
+	NumsOfReduce int
 }
 
 //RequestTaskReply.WorkerNextState
@@ -61,13 +61,13 @@ type RequestTaskArgs struct {
 }
 
 type RequestTaskReply struct {
-	Task *Task
+	Task Task
 	WorkerNextState int
 }
 
 // args and reply for  CallReportTask RPC
 type ReportTaskArgs struct {
-	Task *Task
+	Task Task
 }
 
 type ReportTaskReply struct {
