@@ -139,7 +139,7 @@ func DoReduceTask(reducef func(string, []string) string, task Task) {
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 
-	// TODO:Your worker implementation here.
+	// Your worker implementation here.
 	// keep asking for tasks
 	for {
 		reply, err := CallRequestTask()

@@ -21,7 +21,7 @@ const (
 )
 
 type Master struct {
-	// TODO:Your definitions here.
+	// Your definitions here.
 	mutex       sync.Mutex
 	state       int
 	mapTasks    []Task
@@ -30,7 +30,7 @@ type Master struct {
 	numOfReduce int
 }
 
-// TODO:Your code here -- RPC handlers for the worker to call.
+// Your code here -- RPC handlers for the worker to call.
 
 func (m *Master) RequestTask(args *RequestTaskArgs, reply *RequestTaskReply) error {
 
@@ -169,8 +169,9 @@ func (m *Master) server() {
 //
 func (m *Master) Done() bool {
 
-	// TODO:Your code here.
-
+	// Your code here.
+	m.mutex.Lock()
+	defer m.mutex.Unlock()
 	return m.state == TearDown
 }
 
@@ -180,7 +181,7 @@ func (m *Master) Done() bool {
 // nReduce is the number of reduce tasks to use.
 //
 func MakeMaster(files []string, nReduce int) *Master {
-	// TODO:Your code here.
+	// Your code here.
 	m := Master{
 		mutex:       sync.Mutex{},
 		state:       Initializing,
