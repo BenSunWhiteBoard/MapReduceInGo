@@ -170,12 +170,13 @@ func Worker(mapf func(string, string) []KeyValue,
 
 }
 
+//call for Master.RequestTask
 func CallRequestTask() (RequestTaskReply, error) {
 
 	args := RequestTaskArgs{}
 	reply := RequestTaskReply{}
 
-	isSuccess := call("Master.RequestTaskHandler", &args, &reply)
+	isSuccess := call("Master.RequestTask", &args, &reply)
 	if isSuccess {
 		return reply, nil
 	} else {
@@ -184,12 +185,13 @@ func CallRequestTask() (RequestTaskReply, error) {
 	}
 }
 
+//call for Master.ReportTask
 func CallReportTask(task Task) error {
 
 	args := ReportTaskArgs{task}
 	reply := RequestTaskReply{}
 
-	isSuccess := call("Master.ReportTaskHandler", &args, &reply)
+	isSuccess := call("Master.ReportTask", &args, &reply)
 	if isSuccess {
 		return nil
 	} else {

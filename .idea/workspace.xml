@@ -21,9 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="cee4c8be-e7ff-48b2-a4d1-5e3ec579b01b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mr-tmp/mr-correct-crash.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mr-tmp/mr-correct-indexer.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mr-tmp/mr-crash-all" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mr-tmp/mr-done" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mr-tmp/mr-indexer-all" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mrmaster" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrmaster" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mrsequential" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrsequential" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mrworker" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mrworker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test-mr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test-mr.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mr/master.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/master.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mr/worker.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/mr/worker.go" afterDir="false" />
     </list>
@@ -56,8 +62,57 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/mr" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/mr" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/mr" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build mrworker.go">
+    <configuration name="go build mrmaster.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="6.824" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="pg-being_ernest.txt pg-dorian_gray.txt" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main/mrmaster.go" />
+      <package value="main" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build mrworker.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="6.824" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main/mrworker.go" />
+      <package value="main" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build worker" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false">
+      <module name="6.824" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <parameters value="go run mrworker.go wc.so" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build mrmaster.go" />
+      <item itemvalue="Go Build.go build mrworker.go" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build mrworker.go" />
+        <item itemvalue="Go Build.go build mrmaster.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +127,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -97,17 +162,77 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="362" y="231" key="#Notifications/0.0.1280.800@0.0.1280.800" timestamp="1603700737373" />
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603570866196">
+    <state x="209" y="66" width="1071" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604046544886">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1603570866196" />
-    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604002438606">
+    <state x="209" y="66" width="1071" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1604046544886" />
+    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604013479499">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1604002438606" />
+    <state x="370" y="209" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1604013479499" />
+    <state x="128" y="69" key="DiffContextDialog" timestamp="1604004550525">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="128" y="69" key="DiffContextDialog/0.0.1280.800@0.0.1280.800" timestamp="1604004550525" />
+    <state x="494" y="110" key="EnvironmentVariablesDialog" timestamp="1604013753915">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="494" y="110" key="EnvironmentVariablesDialog/0.0.1280.800@0.0.1280.800" timestamp="1604013753915" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1604055548472">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604055548472" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1604055548470">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604055548470" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1604055548469">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604055548469" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1604055548471">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604055548471" />
+    <state width="1238" height="264" key="GridCell.Tab.1.bottom" timestamp="1604050548670">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="264" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604050548670" />
+    <state width="1238" height="264" key="GridCell.Tab.1.center" timestamp="1604050548669">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="264" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1604050548669" />
+    <state width="1238" height="264" key="GridCell.Tab.1.left" timestamp="1604050548669">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="264" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1604050548669" />
+    <state width="1238" height="264" key="GridCell.Tab.1.right" timestamp="1604050548670">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="264" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1604050548670" />
+    <state x="447" y="127" key="RollbackChangesDialog" timestamp="1604005190632">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="447" y="127" key="RollbackChangesDialog/0.0.1280.800@0.0.1280.800" timestamp="1604005190632" />
     <state x="141" y="39" key="SettingsEditor" timestamp="1603570897277">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1603570897277" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/main/mrworker.go</url>
+          <line>24</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/mr/master.go</url>
+          <line>109</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

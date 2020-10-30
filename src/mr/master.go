@@ -32,7 +32,7 @@ type Master struct {
 
 // TODO:Your code here -- RPC handlers for the worker to call.
 
-func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskReply) error {
+func (m *Master) RequestTask(args *RequestTaskArgs, reply *RequestTaskReply) error {
 
 	m.mutex.Lock()
 	defer m.mutex.Unlock()
@@ -45,21 +45,16 @@ func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskRep
 			if task.State == UnScheduled {
 				//schedule unassigned task
 				task.State = InProgress
-				reply = &RequestTaskReply{
-					Task:            task,
-					WorkerNextState: WorkAssigned,
-				}
+				reply.Task = task
+				reply.WorkerNextState = WorkAssigned
 
 				m.mapTasks[i].State = InProgress
 				m.mapTasks[i].TimeStamp = time.Now()
-
 				return nil
 			} else if task.State == InProgress && time.Now().Sub(task.TimeStamp) > 10*time.Second {
 				//reassign tasks due to timeout
-				reply = &RequestTaskReply{
-					Task:            task,
-					WorkerNextState: WorkAssigned,
-				}
+				reply.Task = task
+				reply.WorkerNextState = WorkAssigned
 				//update TimeStamp
 				m.mapTasks[i].TimeStamp = time.Now()
 
@@ -77,10 +72,8 @@ func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskRep
 			if task.State == UnScheduled {
 				//schedule unassigned task
 				task.State = InProgress
-				reply = &RequestTaskReply{
-					Task:            task,
-					WorkerNextState: WorkAssigned,
-				}
+				reply.Task = task
+				reply.WorkerNextState = WorkAssigned
 
 				m.reduceTasks[i].State = InProgress
 				m.reduceTasks[i].TimeStamp = time.Now()
@@ -88,13 +81,11 @@ func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskRep
 				return nil
 			} else if task.State == InProgress && time.Now().Sub(task.TimeStamp) > 10*time.Second {
 				//reassign tasks due to timeout
-				reply = &RequestTaskReply{
-					Task:            task,
-					WorkerNextState: WorkAssigned,
-				}
+				reply.Task = task
+				reply.WorkerNextState = WorkAssigned
 				//update TimeStamp
 				m.reduceTasks[i].TimeStamp = time.Now()
-
+				return nil
 			} else if task.State == Done {
 				//ignore the task
 				//TODO: array for task is not efficient, maybe change to map?
@@ -111,7 +102,7 @@ func (m *Master) RequestTaskHandler(args *RequestTaskArgs, reply *RequestTaskRep
 	return nil
 }
 
-func (m *Master) ReportTaskHandler(args *ReportTaskArgs, reply *ReportTaskReply) error {
+func (m *Master) ReportTask(args *ReportTaskArgs, reply *ReportTaskReply) error {
 
 	m.mutex.Lock()
 	defer m.mutex.Unlock()
@@ -211,7 +202,7 @@ func MakeMaster(files []string, nReduce int) *Master {
 	}
 
 	for i := 0; i < nReduce; i ++ {
-		m.mapTasks = append(m.mapTasks, Task{
+		m.reduceTasks = append(m.reduceTasks, Task{
 			Id:           i,
 			TaskType:     ReduceTask,
 			State:        UnScheduled,
